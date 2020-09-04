@@ -4,9 +4,12 @@ import App from './App'
 
  afterEach(cleanup)
 
-
- it('should take a snapshot', () => {
-    const { asFragment } = renderWithProviders(<App />)
-    
-    expect(asFragment(<App />)).toMatchSnapshot()
-   });
+describe('<App />', ()=>{
+   const wrapper = renderWithProviders(<App/>);
+     it('should renders the component', () => {
+      expect (wrapper).toBeTruthy();
+    });
+    it('should Match snapshot', () => {
+      expect(wrapper).toMatchSnapshot()
+     });
+})
