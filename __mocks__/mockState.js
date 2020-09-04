@@ -1,4 +1,4 @@
-export const mockState = {
+export const initialState = {
     listings: {
       id: 0,
       name: '',

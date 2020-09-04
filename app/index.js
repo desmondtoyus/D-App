@@ -11,6 +11,6 @@ import '!file-loader?name=[name].[ext]!./assets/images/favicon.jpeg';
 ReactDom.render(
     <Provider store={store}>
         <HelmetProvider><App/></HelmetProvider>
-    </Provider>, document.getElementById('root')
+    </Provider>, document.getElementById('root') || document.createElement('div') //for testing
 );
 registerServiceWorker();
