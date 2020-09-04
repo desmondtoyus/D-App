@@ -2,7 +2,8 @@ import React, { StrictMode, memo, useEffect, useMemo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
-import { changesView } from '../../redux/actions/menu/menu'
+import { changesView } from '../../redux/actions/menu/menu';
+import Header from '../header/index';
 
 function Wrapper (props){
     // const menu = useSelector(state=>state.menus);
@@ -24,9 +25,7 @@ function Wrapper (props){
                     <title>{pageTitle}</title>
                     <meta name='description' content={props.desc}/>
                 </Helmet>
-                <div data-testid='header'>
-                    HEADER - {pageTitle}
-                </div>
+                <Header/>
                 <div>
                     {props.children}
                 </div>
