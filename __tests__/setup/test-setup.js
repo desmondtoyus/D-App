@@ -43,7 +43,7 @@ const middleware = [reduxThunk];
 function renderWithProviders(ui, { reduxState } = {}) {
   const store = createStore(reducers, reduxState || initialState, composeWithDevTools(applyMiddleware(...middleware)))
   
-  return  rtlRender (<HelmetProvider><MemoryRouter><Provider store={store}>{ui}</Provider></MemoryRouter></HelmetProvider>);
+  return  rtlRender(<HelmetProvider><MemoryRouter><Provider store={store}>{ui}</Provider></MemoryRouter></HelmetProvider>);
 }
 
 // re-export everything

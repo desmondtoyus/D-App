@@ -10,23 +10,3 @@ import App from './App'
     
     expect(asFragment(<App />)).toMatchSnapshot()
    });
-
-// test("Wrapper not logged in", () => {
-//   const { getByText } = renderWithProviders(<Wrapper />, {
-//     store: { user: null }
-//   });
-//   getByText("login");
-//   getByText("register");
-// });
-
-// test("Wrapper logged in", () => {
-//   const { getByText } = renderWithProviders(<Wrapper />, {
-//     reduxState: {
-//       user: {
-//         name: "bob"
-//       }
-//     }
-//   });
-
-//   getByText("bob");
-// });
