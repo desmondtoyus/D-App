@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainWrapper /> Should match a snapshot 1`] = `[Function]`;
+
+exports[`<MainWrapper /> should take a snapshot 1`] = `[Function]`;

@@ -39,7 +39,7 @@ const middleware = [reduxThunk];
 
 
 
-
+// pass redux state to over initial state
 function renderWithProviders(ui, { reduxState } = {}) {
   const store = createStore(reducers, reduxState || initialState, composeWithDevTools(applyMiddleware(...middleware)))
   

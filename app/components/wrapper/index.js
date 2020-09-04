@@ -24,7 +24,7 @@ function Wrapper (props){
                     <title>{pageTitle}</title>
                     <meta name='description' content={props.desc}/>
                 </Helmet>
-                <div>
+                <div data-testid='header'>
                     HEADER - {pageTitle}
                 </div>
                 <div>
