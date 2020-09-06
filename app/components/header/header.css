@@ -1,0 +1,26 @@
+header{
+    display:fixed;
+    z-index: 5;
+    height: 60px;
+    width: 100%;
+    background:#000;
+    padding: 20px 10px 10px 10px;
+    border-radius: 10px;
+}
+nav .rightSide{
+    float: right;
+}
+nav a{
+    text-decoration: none;
+    cursor: point;
+    margin: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+nav ul{
+    float: left;
+    list-style: none;
+}
+nav a:hover{
+    color: #cccccc;
+}

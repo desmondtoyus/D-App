@@ -6,6 +6,7 @@ import App from './app';
 import { store } from './redux/store'
 import registerServiceWorker from './registerServiceWorker';
 import '!file-loader?name=[name].[ext]!./assets/images/favicon.jpeg';
+import './scss/app.scss';
 
 
 ReactDom.render(
