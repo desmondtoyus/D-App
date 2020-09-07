@@ -33,7 +33,9 @@ const mock = (req, res)=>{
         alt:'Top 10% of engineers'
     },
 ]
-    return res.json(response);
+//simulating delays in https calls
+setTimeout(()=>res.json(response), 1000);
+return;
 }
 
 

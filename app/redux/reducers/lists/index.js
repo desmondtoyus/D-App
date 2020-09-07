@@ -8,7 +8,11 @@ let initialState = {
 export default (state={...initialState}, action)=>{
     switch(action.type){
         case actionTypes.LIST_PROJECTS:
-        return {...state, loading:false, projects: action.payload}
+            return {...state, loading:false, projects: action.payload}
+        case actionTypes.LIST_CHANGES:
+            return { ...state, 
+                [action.prop]:action.value, 
+             }  
 
         default:
             return state;

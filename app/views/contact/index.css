@@ -1,5 +1,5 @@
 .red {
-    color: red;
+    color: #ff0000;
 }
 .form-area {
     /* background-color: #FAFAFA; */
@@ -10,4 +10,12 @@
 .form-title{
     margin-bottom: 25px; text-align: center;
     /* margin-top: 40px; */
+}
+.help-block{
+    color: #ff0000
+}
+.err{
+    background-color:#ffc0cb !important;
+    border-color:#ffc0cb !important;
+    
 }

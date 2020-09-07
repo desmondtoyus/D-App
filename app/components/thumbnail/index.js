@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 function Thumbnail(props){
     const projectLists = useMemo(()=>props.projects, [props.projects])
 
+    if(!props.projects.length)  return <div className='col-md-offset-5 col-md-2'></div>
+
     return projectLists.map((data, i)=>{
             return(
                 <div className='col-md-6' key={data.id}>

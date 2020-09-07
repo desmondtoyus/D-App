@@ -102,3 +102,6 @@ export default memo(Home);
 // component while React.PureComponent is used only in class component
 // 🚀 React.useMemo returns a memoized value while React.useCallback return a memoized callback
 // https://github.com/NataliaGon
+// Recap
+// you should not use ‘useCallback’ and ‘useMemo’ for everything. ‘useMemo’ should be used for big data
+//  processing while ‘useCallback’ is a way to add more dependency to your code to avoid useless rendering.
