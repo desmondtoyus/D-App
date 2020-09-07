@@ -1,8 +1,9 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import validator from 'validator';
 import { inputhandler, resetErrors, resetReducers } from '../../redux/actions/mail';
 import Wrapper from '../../components/wrapper';
+import Loader from '../../components/loader'
 import './index.css';
 
 function Contact(props){
@@ -17,12 +18,22 @@ const {
     mobileErr,
     subjectErr,
     messageErr,
-    responseMsg
+    responseMsg,
+    loading
 } = useSelector(state=>state.mails);
+//key state to store the keyboard key last pressed
+const [key, setKey] = useState(0);
 const dispatch = useDispatch();
 
 useEffect(()=>{
-      // componentWillUnmount events
+      //Add event listener for all keyboard key
+      // used to read backspace and delete when
+      // message text area reaches max
+      window.addEventListener("keydown", function(event) {
+        setKey((key)=>key = event.keyCode)
+      }, true);
+
+      // componentWillUnmount, reset all inputs
     return ()=>{
         dispatch(resetReducers());
     }
@@ -30,11 +41,16 @@ useEffect(()=>{
 
 const handleChange=(e)=>{
     e.preventDefault();
+    // check if test bigger than max, only allow backspace and delete keys
+    if(e.target.name === 'message' && message.trim().length > 500 && !(key== 8 || key == 46 )){
+        dispatch(inputhandler({prop:'messageErr', value:'You have reached the limit'}));
+        return;
+    }
     dispatch(inputhandler({prop:[e.target.name], value:validator.escape(e.target.value)}))
 }
 
 const  isValidPhoneNumber = (inputtxt)=>{
-  const phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  const phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,8}$/;
 return (inputtxt.match(phoneno)) ?  true : false;
 }
 
@@ -43,7 +59,7 @@ const handleSubmit=(e)=>{
     dispatch(resetErrors());
 
     if(!name.trim().length){
-        dispatch(inputhandler({prop:'nameErr', value:'Invalid name'}));
+        dispatch(inputhandler({prop:'nameErr', value:'Invalid Name'}));
         return;
     }
     if(!validator.isEmail(email) || !email.trim().length){
@@ -51,19 +67,19 @@ const handleSubmit=(e)=>{
         return;
     }
     if(!mobile.trim().length || !isValidPhoneNumber(mobile.trim())){
-        dispatch(inputhandler({prop:'mobileErr', value:'Invalid mobile'}));
+        dispatch(inputhandler({prop:'mobileErr', value:'Invalid Mobile Number'}));
         return;
     }
     if(!subject.trim().length){
-        dispatch(inputhandler({prop:'subjectErr', value:'Invalid subject'}));
+        dispatch(inputhandler({prop:'subjectErr', value:'Invalid Subject'}));
         return;
     }
     if(!message.trim().length){
-        dispatch(inputhandler({prop:'messageErr', value:'Invalid message'}));
+        dispatch(inputhandler({prop:'messageErr', value:'Invalid Sessage'}));
         return;
     }
     if(message.trim().length > 500){
-        dispatch(inputhandler({prop:'messageErr', value:'You have reached the limi'}));
+        dispatch(inputhandler({prop:'messageErr', value:'You have reached the limit'}));
         return;
     }
     dispatch(inputhandler({prop:'loading', value:true}))
@@ -75,9 +91,12 @@ const handleSubmit=(e)=>{
         message: message.trim(),
     }
 
-    console.log('Payload = ', JSON.stringify(payload))
-    dispatch(resetReducers());
-    dispatch(inputhandler({prop:'responseMsg', value:'Message successfully sent!'}))
+    console.log('Payload = ', JSON.stringify(payload));
+    setTimeout(()=>{
+        dispatch(resetReducers());
+        dispatch(inputhandler({prop:'responseMsg', value:'Message successfully sent!'}))
+    },3000)
+
 }
 
 
@@ -116,7 +135,7 @@ const handleSubmit=(e)=>{
                         {messageErr?<span className="help-block"><p id="characterLeft" className="help-block ">{messageErr}</p></span>:null}                   
                     </div>
             
-        <button type="button" id="submit" name="submit" className="btn btn-primary pull-right" onClick={handleSubmit}>Submit Form</button>
+        <button type="button" id="submit" name="submit" className="btn btn-primary pull-right" onClick={handleSubmit}>{loading&&<Loader size='10px' text=''/>}Submit Form</button>
         </form>
     </div>
 </div>

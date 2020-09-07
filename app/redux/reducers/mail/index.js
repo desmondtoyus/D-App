@@ -10,7 +10,8 @@ const initialState={
     mobileErr:null,
     subjectErr:null,
     messageErr:null,
-    responseMsg: ''
+    responseMsg: '',
+    loading:false
 }
 
 
@@ -33,7 +34,8 @@ export default ((state={...initialState}, action)=>{
                 mobileErr:null,
                 subjectErr:null,
                 messageErr:null,
-                responseMsg: ''
+                responseMsg: '',
+                loading:false
             }
         default:
             return state;
