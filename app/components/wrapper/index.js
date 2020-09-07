@@ -2,20 +2,19 @@ import React, {StrictMode, memo, useEffect, useMemo, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Helmet} from 'react-helmet-async';
 import PropTypes from 'prop-types';
-import {changesView} from '../../redux/actions/menu/menu';
+import {changesView} from '../../redux/actions/menu';
 import Header from '../header/index';
 import Footer from '../footer/index';
 
 function Wrapper(props) {
-    // const menu = useSelector(state=>state.menus);
-    const {pageTitle, activeMenu} = useSelector((state) => state.menus);
+    const {activeMenu} = useSelector((state) => state.menus);
     const dispatch = useDispatch();
     useEffect(() => {
-        loadViewData()
-    }, [activeMenu, pageTitle])
+        return loadViewData()
+    }, [activeMenu])
 
-    const loadViewData = async() => {
-        await dispatch(changesView({prop: 'pageTitle', value: props.title}))
+    const loadViewData = () => {
+         dispatch(changesView({prop: 'activeMenu', value: props.viewId}))
     }
 
     return (
@@ -24,7 +23,7 @@ function Wrapper(props) {
                 <div className="jumbotron hero">
                     <Helmet>
                         <html lang={props.locale}/>
-                        <title>{pageTitle}</title>
+                        <title>{props.title}</title>
                         <meta name='description' content={props.desc}/>
                     </Helmet>
                     <Header/>
@@ -41,7 +40,8 @@ function Wrapper(props) {
 Wrapper.propTypes = {
     locale: PropTypes.string,
     title: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired
+    desc: PropTypes.string.isRequired,
+    viewId: PropTypes.string.isRequired
 };
 
 Wrapper.defaultProps = {

@@ -1,5 +1,5 @@
-import listing from './reducers/listing';
-import menu from './reducers/menu'
+import listing from './reducers/lists/index';
+import menu from './reducers/menu/index'
 import { combineReducers } from 'redux';
 
 export default combineReducers({

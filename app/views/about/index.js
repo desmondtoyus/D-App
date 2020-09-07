@@ -7,7 +7,7 @@ import myImg from '../../assets/images/desmond.jpg'
 function About(props){
 
     return(
-        <Wrapper title={`About Us`} desc={`Desmond Ademiluyi -  hands-on React (& Redux) and NodeJS Engineer, I have over 7 years’ experience working with JavaScript.`}>
+        <Wrapper title={`About Us`} viewId='about' desc={`Desmond Ademiluyi -  hands-on React (& Redux) and NodeJS Engineer, I have over 7 years’ experience working with JavaScript.`}>
             {/* <div>
             <p>I’m a hands-on React (& Redux) and NodeJS Engineer, I have over 7 years’ experience working with JavaScript. For the past 3 years, I have worked as a full-stack developer at PilotX where I helped the company developed the PilotX Online AdTech SaaS platform (average 100k users daily) using React and Redux on the frontend and NodeJS on the backend.</p>
             <p>I have been building React/NodeJS apps since 2015, the component-based structure of React added to the state management function of Redux with the event-driven architecture of NodeJS make React/NodeJS apps perform better, scale easily, and maintainable. I have worked on several projects from architecture to full development and deployment, including a Social Countdown Sharing App and React/JavaScript libraries. I love adding value to whatever I do while learning new skills and meeting new people.</p>
@@ -16,8 +16,8 @@ function About(props){
             <div className="about-section">
 		<div className="container">
 			<div className="site-title text-center">
-				<h3>About Me</h3>
-				<p>Experienced JavaScript Developer with over seven years’ experience developing scalable, high-performance, and responsive web applications.</p>
+				<h3>Desmond Ademiluyi</h3>
+				<p> About Me</p>
 			</div>
 			<div className="about-inner-section">	
 			    <div className="col-md-6 about-right">

@@ -5,7 +5,7 @@ import Wrapper from '../../components/wrapper';
 function NotFound(props){
 
     return(
-        <Wrapper desc={`desmond.pro - Page cannot be found`}>
+        <Wrapper viewId='404' desc={`desmond.pro - Page cannot be found`}>
          <div className="container" style={{marginTop:'10%'}}>
 			<div className="site-title text-center">
 				<h3>Page Not Found</h3>

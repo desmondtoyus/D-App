@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { actionTypes } from '../../../constants/actionTypes';
-export const readLists = ()=> dispatch =>{
+
+export const listProjects = ()=> dispatch =>{
     axios.get(`/api/listing`)
         .then((response)=>{
-            dispatch({type:actionTypes.READ_LISTING, payload: response.data })
+            dispatch({type:actionTypes.LIST_PROJECTS, payload: response.data })
         })
         .catch(err=>console.log(err))
 

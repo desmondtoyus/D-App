@@ -5,8 +5,23 @@ import './index.css';
 
 function Contact(props){
 
+    const handleLink = (e)=>{
+        e.preventDefault();
+        console.log(e.target.id);
+        switch (e.target.id) {
+            case 'readmore':
+                return props.history.push(`/about`);
+            case 'contact':
+                return props.history.push(`/contact`);
+            case 'portfolio':
+                return props.history.push(`/portfolio`);
+            default:
+                return;
+        }
+    }
+
     return(
-        <Wrapper title={`Contact Us`} desc={`Desmond Ademiluyi -  hands-on React (& Redux) and NodeJS Engineer, I have over 7 years’ experience working with JavaScript.`}>
+        <Wrapper title={`Contact Us`} viewId='contact' desc={`Desmond Ademiluyi -  hands-on React (& Redux) and NodeJS Engineer, I have over 7 years’ experience working with JavaScript.`}>
            <div className="container">
            <div className="site-title text-center">
 				<h3>Contact Me</h3>
