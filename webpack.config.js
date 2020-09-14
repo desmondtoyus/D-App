@@ -108,9 +108,8 @@ const config = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'process.env.APP_NAME': JSON.stringify(process.env.APP_NAME || 'Yelp'),
-      'process.env.APP_URL':  JSON.stringify(process.env.APP_URL || 'http://localhost:3000/'),
-      'process.env.WEBSITE':  JSON.stringify(process.env.WEBSITE || 'wwww.arewethere.yt'),
+      'process.env.APP_NAME': JSON.stringify(process.env.APP_NAME || 'desmond.pro'),
+      'process.env.APP_URL':  JSON.stringify(process.env.APP_URL || 'http://localhost:4005/'),
       'process.browser': 'true' 
     }),
     new SWPrecacheWebpackPlugin({

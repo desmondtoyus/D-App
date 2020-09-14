@@ -29,16 +29,19 @@ useEffect(()=>{
       //Add event listener for all keyboard key
       // used to read backspace and delete when
       // message text area reaches max
-      window.addEventListener("keydown", function(event) {
-        setKey((key)=>key = event.keyCode)
-      }, true);
-
+      let ele = document.getElementById('message');
+      if(ele) ele.addEventListener("keydown", handleKeyDown, true);
       // componentWillUnmount, reset all inputs
     return ()=>{
+        if(ele)  ele.removeEventListener("keydown", handleKeyDown, true);
         dispatch(resetReducers());
     }
 }, [])
 
+const handleKeyDown= (event) => {
+    console.log(event.keyCode)
+    setKey((key)=>key = event.keyCode)
+  }
 const handleChange=(e)=>{
     e.preventDefault();
     // check if test bigger than max, only allow backspace and delete keys
