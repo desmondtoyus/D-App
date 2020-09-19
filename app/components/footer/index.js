@@ -4,7 +4,7 @@ import './footer.css';
 
 function Footer(props) {
     return (
-        <footer className="nb-footer">
+        <footer className="nb-footer" data-testid='nb-footer'>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12">
@@ -17,16 +17,16 @@ function Footer(props) {
                             <div className="social-media">
                                 <ul className="list-inline">
                                 <li>
-                                    <a href='https://www.linkedin.com/in/desmondademiluyi/' target='_blank'><i className="fa fa-linkedin"></i></a>
+                                    <a href='https://www.linkedin.com/in/desmondademiluyi/' target='_blank' data-testid='linkedin'><i className="fa fa-linkedin"></i></a>
                                     </li>
                                     <li>
-                                        <a href='https://www.facebook.com/ademiluyi.toye' target='_blank'><i className="fa fa-facebook"></i></a>
+                                        <a href='https://www.facebook.com/ademiluyi.toye' target='_blank' data-testid='facebook'><i className="fa fa-facebook"></i></a>
                                     </li>
                                     <li>
-                                    <a href='https://github.com/desmondtoyus' target='_blank'><i className="fa fa-github"></i></a>
+                                    <a href='https://github.com/desmondtoyus' target='_blank' data-testid='github'><i className="fa fa-github"></i></a>
                                     </li>
                                     <li>
-                                    <a href='https://twitter.com/arewethere_yt' target='_blank'><i className="fa fa-twitter"></i></a>
+                                    <a href='https://twitter.com/arewethere_yt' target='_blank' data-testid='twitter'><i className="fa fa-twitter"></i></a>
                                     </li>
                                 </ul>
                             </div>

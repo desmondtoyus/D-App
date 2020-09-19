@@ -5,15 +5,17 @@ import About from './views/about';
 import NotFound from './views/404';
 import Portfolio from './views/portfolio';
 import Contact from './views/contact';
+import Examples from './views/example';
 
 const App =(props)=>(
     <Router>
         <Switch>
-            <Route exact path='/' component ={Home} />
-            <Route path='/about' component ={About} />
-            <Route path='/portfolio' component ={Portfolio} />
-            <Route path='/contact' component ={Contact} />
-            <Route exact path='*' component ={NotFound} />
+        <Route exact path='/'><Home/></Route>
+            <Route path='/about'><About/></Route>
+            <Route path='/portfolio'><Portfolio/></Route>
+            <Route path='/contact'><Contact/></Route>
+            <Route path='/example'><Examples/></Route>
+            <Route exact path='*'><NotFound/></Route>
         </Switch>
     </Router>
 )

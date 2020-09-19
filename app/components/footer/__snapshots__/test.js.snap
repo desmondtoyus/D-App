@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer should load successfully 1`] = `[Function]`;
+
+exports[`<Footer should match snapshot 1`] = `[Function]`;
